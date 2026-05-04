@@ -15,11 +15,11 @@
 }
 
 
-.switch .switch__wrapper {
+.switch .switch-wrapper {
   display: inline-block;
 }
 
-.switch .switch__control {
+.switch .switch-control {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
@@ -27,7 +27,7 @@
 
 
 
-.switch .switch__track {
+.switch .switch-track {
   position: relative;
   flex-shrink: 0;
   width: var(--switch-track-width);
@@ -41,22 +41,22 @@
   margin-top: 1px;
 }
 
-.switch .switch__track[aria-checked='true'] {
+.switch .switch-track[aria-checked='true'] {
   background: var(--switch-color-on);
 }
 
-.switch .switch__track:disabled {
+.switch .switch-track:disabled {
   background: var(--switch-color-off);
   cursor: not-allowed;
   opacity: 0.45;
 }
 
-.switch .switch__track:focus-visible {
+.switch .switch-track:focus-visible {
   outline: none;
   box-shadow: var(--switch-focus-ring);
 }
 
-.switch .switch__thumb {
+.switch .switch-thumb {
   position: absolute;
   top: 50%;
   left: var(--switch-thumb-gap);
@@ -69,13 +69,13 @@
   transition: left 0.2s ease;
 }
 
-.switch .switch__track[aria-checked='true'] .switch__thumb {
+.switch .switch-track[aria-checked='true'] .switch-thumb {
   left: calc(var(--switch-track-width) - var(--switch-thumb-size) - var(--switch-thumb-gap));
 }
 
 
 
-.switch .switch__text {
+.switch .switch-text {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
@@ -83,27 +83,27 @@
   user-select: none;
 }
 
-.switch .switch__label {
+.switch .switch-label {
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--switch-label-color);
   line-height: 1.4;
 }
 
-.switch .switch__description {
+.switch .switch-description {
   font-size: 0.8125rem;
   color: var(--switch-desc-color);
   line-height: 1.4;
 }
 
-.switch .switch__control:has(.switch__track:disabled) .switch__text {
+.switch .switch-control:has(.switch-track:disabled) .switch-text {
   cursor: default;
   opacity: 0.45;
 }
 
 
 
-@media (min-width: 600px) {
+@media (width >= 600px) {
   .switch {
     --switch-track-width: 44px;
     --switch-track-height: 24px;
@@ -114,33 +114,33 @@
 
 
 @media (prefers-reduced-motion: reduce) {
-  .switch .switch__track,
-  .switch .switch__thumb {
+  .switch .switch-track,
+  .switch .switch-thumb {
     transition: none;
   }
 }
 
 @media (forced-colors: active) {
-  .switch .switch__track {
+  .switch .switch-track {
     border: 2px solid ButtonText;
     background: ButtonFace;
     forced-color-adjust: none;
   }
 
-  .switch .switch__track[aria-checked='true'] {
+  .switch .switch-track[aria-checked='true'] {
     background: Highlight;
     border-color: Highlight;
   }
 
-  .switch .switch__thumb {
+  .switch .switch-thumb {
     background: ButtonText;
   }
 
-  .switch .switch__track[aria-checked='true'] .switch__thumb {
+  .switch .switch-track[aria-checked='true'] .switch-thumb {
     background: HighlightText;
   }
 
-  .switch .switch__track:disabled {
+  .switch .switch-track:disabled {
     border-color: GrayText;
     background: ButtonFace;
   }

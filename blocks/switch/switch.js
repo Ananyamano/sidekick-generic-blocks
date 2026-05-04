@@ -17,16 +17,15 @@ export default function decorate(block) {
 
   const uid = `switch-${crypto.randomUUID().slice(0, 8)}`;
 
-
   const wrapper = document.createElement('div');
-  wrapper.className = 'switch__wrapper';
+  wrapper.className = 'switch-wrapper';
 
   const control = document.createElement('div');
-  control.className = 'switch__control';
+  control.className = 'switch-control';
 
   const btn = document.createElement('button');
   btn.type = 'button';
-  btn.className = 'switch__track';
+  btn.className = 'switch-track';
   btn.setAttribute('role', 'switch');
   btn.setAttribute('aria-checked', checked ? 'true' : 'false');
   btn.setAttribute('aria-labelledby', `${uid}-label`);
@@ -34,24 +33,23 @@ export default function decorate(block) {
   if (disabled) btn.disabled = true;
 
   const thumb = document.createElement('span');
-  thumb.className = 'switch__thumb';
+  thumb.className = 'switch-thumb';
   thumb.setAttribute('aria-hidden', 'true');
   btn.appendChild(thumb);
 
-
   const textDiv = document.createElement('div');
-  textDiv.className = 'switch__text';
+  textDiv.className = 'switch-text';
 
   const labelEl = document.createElement('span');
   labelEl.id = `${uid}-label`;
-  labelEl.className = 'switch__label';
+  labelEl.className = 'switch-label';
   labelEl.textContent = label;
   textDiv.appendChild(labelEl);
 
   if (description) {
     const descEl = document.createElement('span');
     descEl.id = `${uid}-desc`;
-    descEl.className = 'switch__description';
+    descEl.className = 'switch-description';
     descEl.textContent = description;
     textDiv.appendChild(descEl);
   }
@@ -70,7 +68,6 @@ export default function decorate(block) {
   };
 
   btn.addEventListener('click', toggle);
-
 
   textDiv.addEventListener('click', () => {
     if (!btn.disabled) btn.click();

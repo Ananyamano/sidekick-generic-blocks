@@ -61,33 +61,32 @@ export default function decorate(block) {
   const uid = `meter-${crypto.randomUUID().slice(0, 8)}`;
 
   const wrapper = document.createElement('div');
-  wrapper.className = 'meter__wrapper';
-
+  wrapper.className = 'meter-wrapper';
 
   const header = document.createElement('div');
-  header.className = 'meter__header';
+  header.className = 'meter-header';
 
   if (label) {
     const labelEl = document.createElement('span');
     labelEl.id = `${uid}-label`;
-    labelEl.className = 'meter__label';
+    labelEl.className = 'meter-label';
     labelEl.textContent = label;
     header.appendChild(labelEl);
   }
 
   const valueEl = document.createElement('span');
-  valueEl.className = `meter__value meter__value--${zone}`;
+  valueEl.className = `meter-value meter-value-${zone}`;
   valueEl.textContent = fmt(value);
   header.appendChild(valueEl);
 
   wrapper.appendChild(header);
 
   const trackArea = document.createElement('div');
-  trackArea.className = 'meter__track-area';
-  if (optimum !== null) trackArea.classList.add('meter__track-area--has-optimum');
+  trackArea.className = 'meter-track-area';
+  if (optimum !== null) trackArea.classList.add('meter-track-area-has-optimum');
 
   const track = document.createElement('div');
-  track.className = 'meter__track';
+  track.className = 'meter-track';
   track.setAttribute('role', 'meter');
   track.setAttribute('aria-valuenow', value);
   track.setAttribute('aria-valuemin', min);
@@ -99,10 +98,9 @@ export default function decorate(block) {
     track.setAttribute('aria-label', 'Meter');
   }
 
-
   if (low !== null || high !== null) {
     const segments = document.createElement('div');
-    segments.className = 'meter__segments';
+    segments.className = 'meter-segments';
     segments.setAttribute('aria-hidden', 'true');
 
     const lowPct = low !== null ? toPct(low) : 0;
@@ -110,19 +108,19 @@ export default function decorate(block) {
 
     if (low !== null) {
       const seg = document.createElement('div');
-      seg.className = 'meter__segment meter__segment--low';
+      seg.className = 'meter-segment meter-segment-low';
       seg.style.width = `${lowPct}%`;
       segments.appendChild(seg);
     }
 
     const mid = document.createElement('div');
-    mid.className = 'meter__segment meter__segment--normal';
+    mid.className = 'meter-segment meter-segment-normal';
     mid.style.width = `${highPct - (low !== null ? lowPct : 0)}%`;
     segments.appendChild(mid);
 
     if (high !== null) {
       const seg = document.createElement('div');
-      seg.className = 'meter__segment meter__segment--high';
+      seg.className = 'meter-segment meter-segment-high';
       seg.style.width = `${100 - highPct}%`;
       segments.appendChild(seg);
     }
@@ -131,7 +129,7 @@ export default function decorate(block) {
   }
 
   const fill = document.createElement('div');
-  fill.className = `meter__fill meter__fill--${zone}`;
+  fill.className = `meter-fill meter-fill-${zone}`;
   fill.style.width = `${pct.toFixed(4)}%`;
   fill.setAttribute('aria-hidden', 'true');
   track.appendChild(fill);
@@ -140,20 +138,20 @@ export default function decorate(block) {
 
   const addMarker = (pos, cls) => {
     const marker = document.createElement('div');
-    marker.className = `meter__marker ${cls}`;
+    marker.className = `meter-marker ${cls}`;
     marker.style.left = `${toPct(pos).toFixed(4)}%`;
     marker.setAttribute('aria-hidden', 'true');
     trackArea.appendChild(marker);
   };
 
-  if (low !== null) addMarker(low, 'meter__marker--threshold');
-  if (high !== null) addMarker(high, 'meter__marker--threshold');
-  if (optimum !== null) addMarker(optimum, 'meter__marker--optimum');
+  if (low !== null) addMarker(low, 'meter-marker-threshold');
+  if (high !== null) addMarker(high, 'meter-marker-threshold');
+  if (optimum !== null) addMarker(optimum, 'meter-marker-optimum');
 
   wrapper.appendChild(trackArea);
 
   const rangeRow = document.createElement('div');
-  rangeRow.className = 'meter__range-labels';
+  rangeRow.className = 'meter-range-labels';
   rangeRow.setAttribute('aria-hidden', 'true');
 
   const minSpan = document.createElement('span');

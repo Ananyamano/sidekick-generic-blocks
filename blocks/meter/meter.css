@@ -13,7 +13,7 @@
   font-family: var(--body-font-family, adobe-clean, sans-serif);
 }
 
-.meter .meter__wrapper {
+.meter .meter-wrapper {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -21,20 +21,20 @@
 }
 
 
-.meter .meter__header {
+.meter .meter-header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 0.5rem;
 }
 
-.meter .meter__label {
+.meter .meter-label {
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--meter-label-color);
 }
 
-.meter .meter__value {
+.meter .meter-value {
   font-size: 0.8125rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
@@ -42,31 +42,31 @@
   transition: color 0.3s ease;
 }
 
-.meter .meter__value--optimal {
+.meter .meter-value-optimal {
   color: var(--meter-color-optimal);
 }
 
-.meter .meter__value--suboptimal {
+.meter .meter-value-suboptimal {
   color: var(--meter-color-suboptimal);
 }
 
-.meter .meter__value--bad {
+.meter .meter-value-bad {
   color: var(--meter-color-bad);
 }
 
 
-.meter .meter__track-area {
+.meter .meter-track-area {
   position: relative;
   width: 100%;
 }
 
-.meter .meter__track-area--has-optimum {
+.meter .meter-track-area-has-optimum {
   padding-top: 10px;
 }
 
 
 
-.meter .meter__track {
+.meter .meter-track {
   position: relative;
   width: 100%;
   height: var(--meter-track-height);
@@ -76,32 +76,32 @@
 }
 
 
-.meter .meter__segments {
+.meter .meter-segments {
   position: absolute;
   inset: 0;
   display: flex;
   pointer-events: none;
 }
 
-.meter .meter__segment {
+.meter .meter-segment {
   height: 100%;
   opacity: 0.18;
 }
 
-.meter .meter__segment--low {
+.meter .meter-segment-low {
   background: var(--meter-color-suboptimal);
 }
 
-.meter .meter__segment--normal {
+.meter .meter-segment-normal {
   background: var(--meter-color-optimal);
 }
 
-.meter .meter__segment--high {
+.meter .meter-segment-high {
   background: var(--meter-color-suboptimal);
 }
 
 
-.meter .meter__fill {
+.meter .meter-fill {
   position: absolute;
   top: 0;
   left: 0;
@@ -112,20 +112,20 @@
   transition: width 0.4s ease, background-color 0.3s ease;
 }
 
-.meter .meter__fill--optimal {
+.meter .meter-fill-optimal {
   background: var(--meter-color-optimal);
 }
 
-.meter .meter__fill--suboptimal {
+.meter .meter-fill-suboptimal {
   background: var(--meter-color-suboptimal);
 }
 
-.meter .meter__fill--bad {
+.meter .meter-fill-bad {
   background: var(--meter-color-bad);
 }
 
 
-.meter .meter__marker {
+.meter .meter-marker {
   position: absolute;
   bottom: 0;
   width: 2px;
@@ -134,15 +134,15 @@
   pointer-events: none;
 }
 
-.meter .meter__marker--threshold {
+.meter .meter-marker-threshold {
   background: rgb(0 0 0 / 25%);
 }
 
-.meter .meter__marker--optimum {
+.meter .meter-marker-optimum {
   background: rgb(0 0 0 / 55%);
 }
 
-.meter .meter__marker--optimum::after {
+.meter .meter-marker-optimum::after {
   content: '';
   position: absolute;
   bottom: calc(100% + 2px);
@@ -157,7 +157,7 @@
 
 
 
-.meter .meter__range-labels {
+.meter .meter-range-labels {
   display: flex;
   justify-content: space-between;
   font-size: 0.75rem;
@@ -166,45 +166,45 @@
 }
 
 
-@media (min-width: 600px) {
+@media (width >= 600px) {
   .meter {
     --meter-track-height: 12px;
   }
 
-  .meter .meter__label,
-  .meter .meter__value {
+  .meter .meter-label,
+  .meter .meter-value {
     font-size: 0.875rem;
   }
 }
 
 
 @media (prefers-reduced-motion: reduce) {
-  .meter .meter__fill {
+  .meter .meter-fill {
     transition: none;
   }
 
-  .meter .meter__value {
+  .meter .meter-value {
     transition: none;
   }
 }
 
 @media (forced-colors: active) {
-  .meter .meter__track {
+  .meter .meter-track {
     border: 1px solid ButtonText;
   }
 
-  .meter .meter__fill--optimal,
-  .meter .meter__fill--suboptimal,
-  .meter .meter__fill--bad {
+  .meter .meter-fill-optimal,
+  .meter .meter-fill-suboptimal,
+  .meter .meter-fill-bad {
     background: Highlight;
   }
 
-  .meter .meter__marker--threshold,
-  .meter .meter__marker--optimum {
+  .meter .meter-marker-threshold,
+  .meter .meter-marker-optimum {
     background: ButtonText;
   }
 
-  .meter .meter__segment {
+  .meter .meter-segment {
     display: none;
   }
 }
