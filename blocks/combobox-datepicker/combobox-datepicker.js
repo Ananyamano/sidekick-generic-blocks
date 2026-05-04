@@ -109,7 +109,7 @@ export default function decorate(block) {
 
   const dialog = document.createElement('div');
   dialog.id = `${uid}-dialog`;
-  dialog.className = 'cb-datepicker__dialog';
+  dialog.className = 'cb-datepicker-dialog';
   dialog.setAttribute('role', 'dialog');
 
   dialog.setAttribute('aria-labelledby', `${uid}-label`);
@@ -118,13 +118,13 @@ export default function decorate(block) {
   dialog.hidden = true;
 
   const announcement = document.createElement('div');
-  announcement.className = 'cb-datepicker__sr-announcement';
+  announcement.className = 'cb-datepicker-sr-announcement';
   announcement.setAttribute('aria-live', 'polite');
   announcement.setAttribute('aria-atomic', 'true');
 
   // Header
   const header = document.createElement('div');
-  header.className = 'cb-datepicker__header';
+  header.className = 'cb-datepicker-header';
 
   const monthSel = document.createElement('select');
   monthSel.setAttribute('aria-label', 'Month');
@@ -146,7 +146,7 @@ export default function decorate(block) {
 
   // Grid
   const table = document.createElement('table');
-  table.className = 'cb-datepicker__grid';
+  table.className = 'cb-datepicker-grid';
   table.setAttribute('role', 'grid');
 
   const thead = document.createElement('thead');
@@ -165,7 +165,7 @@ export default function decorate(block) {
 
   // Footer
   const footer = document.createElement('div');
-  footer.className = 'cb-datepicker__footer';
+  footer.className = 'cb-datepicker-footer';
 
   const okBtn = document.createElement('button');
   okBtn.type = 'button';

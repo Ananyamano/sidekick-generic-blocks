@@ -50,7 +50,7 @@ export default function decorate(block) {
   const uid = `rs-${crypto.randomUUID().slice(0, 8)}`;
 
   const wrapper = document.createElement('div');
-  wrapper.className = `range-slider range-slider--${sliderStyle}`;
+  wrapper.className = `range-slider range-slider-${sliderStyle}`;
 
   if (thumbImage) {
     const isSafeUrl = (url) => {
@@ -73,7 +73,7 @@ export default function decorate(block) {
 
   if (label) {
     const labelEl = document.createElement('label');
-    labelEl.className = 'range-slider__label';
+    labelEl.className = 'range-slider-label';
     labelEl.htmlFor = uid;
     labelEl.textContent = label;
     wrapper.appendChild(labelEl);
@@ -82,7 +82,7 @@ export default function decorate(block) {
   const input = document.createElement('input');
   input.type = 'range';
   input.id = uid;
-  input.className = 'range-slider__input';
+  input.className = 'range-slider-input';
   input.min = min;
   input.max = max;
   input.step = step;
@@ -99,7 +99,7 @@ export default function decorate(block) {
   let valueEl = null;
   if (showValue) {
     valueEl = document.createElement('span');
-    valueEl.className = 'range-slider__value';
+    valueEl.className = 'range-slider-value';
     valueEl.setAttribute('aria-live', 'polite');
     valueEl.setAttribute('aria-atomic', 'true');
     valueEl.textContent = formatValue(value);
